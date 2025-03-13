@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 #pragma once
 
@@ -12,8 +13,12 @@ public:
     ~Fixed();
     Fixed(const Fixed &original);
     Fixed &operator=(const Fixed &other);
+    Fixed(int param);
+    Fixed(float param);
 
     int getRawBits(void) const;
     void setRawBits(int const raw);
+    int toInt();
+    float toFloat();
 };
 

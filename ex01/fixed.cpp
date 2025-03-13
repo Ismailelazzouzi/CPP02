@@ -26,6 +26,18 @@ Fixed &Fixed::operator=(const Fixed &other)
     return (*this);
 }
 
+Fixed::Fixed(int param)
+{
+    this->fixedPointValue = param * 256;
+    std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(float param)
+{
+    this->fixedPointValue = (int)roundf(param * 256);
+    std::cout << "float constructor called" << std::endl;
+}
+
 int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
@@ -34,4 +46,14 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
     this->fixedPointValue = raw;
+}
+
+int Fixed::toInt()
+{
+    return (fixedPointValue / 256);
+}
+
+float Fixed::toFloat()
+{
+    return (fixedPointValue / 256.0);
 }
