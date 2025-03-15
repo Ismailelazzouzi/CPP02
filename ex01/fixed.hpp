@@ -15,10 +15,10 @@ public:
     Fixed &operator=(const Fixed &other);
     Fixed(int param);
     Fixed(float param);
-
     int getRawBits(void) const;
     void setRawBits(int const raw);
-    int toInt();
-    float toFloat();
+    int toInt() const;
+    float toFloat() const;
 };
 
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
